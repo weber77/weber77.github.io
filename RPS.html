@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <title>Rock-Paper-Scissor</title>
+</head>
+<body>
+    <script>
+
+        function computerPlay(){
+            let outcomes = ["Rock", "Paper", "Scissor"];
+            let value = Math.floor(Math.random() * outcomes.length);
+
+            return outcomes[value];
+
+        }
+
+
+        const playerSelection = prompt('Rock, Paper or Scissor?');
+
+        function playRound(playerSelection, computerSelection){
+            let computerSelection1 = computerSelection.toUpperCase();
+
+            if(computerSelection1 != 'PAPER' && computerSelection1 != 'ROCK'){
+                console.log('You Win! Rock beats ' + computerSelection);
+                return 1;
+            }else if(computerSelection1 == 'ROCK'){
+                console.log('Draw Game! for ' + computerSelection + ' and ' + playerSelection);
+                return 2;
+            }else{
+                console.log('You Lose! ' + computerSelection + ' beats Rock');
+                return 0;
+            }
+        }
+
+        function game(){
+            let wins = 0, loses = 0 , draws = 0;
+            for( let i = 0; i < 5; i++){
+                let result = 0;
+                result = playRound(playerSelection, computerPlay());
+                console.log(result);
+                if (result == 1)
+                    {wins++;
+                    console.log(wins);}
+                else if(result == 0)
+                    {loses++;
+                        console.log(loses);}
+                else
+                    {draws++;
+                    console.log(draws);}
+            }
+
+            let EngGames = 'Your Wins: ' + wins + '\n' + ' Your Loses: ' + loses + '\n' + ' Your Draws: ' + draws;
+
+            return EngGames;
+        }
+
+        console.log(game());
+
+        
+    </script>
+</body>
